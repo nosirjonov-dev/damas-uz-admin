@@ -52,6 +52,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "551248859239-31o044pri4eue87ddtnord5bpp4d2f1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.damasuzadmin",
+            "certificate_hash": "a567f5067af8d3cb82eaae3782f298ad9a95d211"
+          }
+        },
+        {
           "client_id": "551248859239-n49a23176kuqhga0rorn0binrl6jk4r6.apps.googleusercontent.com",
           "client_type": 3
         }
