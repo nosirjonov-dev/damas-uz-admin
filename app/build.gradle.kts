@@ -49,31 +49,31 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    // Google Sign-In / Credentials
+//     Google Sign-In / Credentials
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
 
-    // Navigation
+//     Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    // Google Play Services
+//     Google Play Services
     implementation(libs.play.services.maps)
     implementation(libs.play.services.location)
     implementation(libs.play.services.auth)
 
-    // Firebase BOM
+//     Firebase BOM
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
 
-    // Firebase libraries
+//     Firebase libraries
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics")
 
-    // Test
+//     Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
