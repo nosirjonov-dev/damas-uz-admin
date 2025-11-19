@@ -18,7 +18,7 @@
                 android:id="@+id/tv_liniya_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11 Farg'ona-Qumtepa (Chimkent) "
+                android:text="11 Farg'ona-Damko'l "
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
