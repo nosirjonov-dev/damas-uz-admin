@@ -76,13 +76,32 @@ class SignActivity : AppCompatActivity() {
         referenceAdmin.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
-                val adminNumber = snapshot.child("number").value?.toString()
+                var found = false
 
-                if (adminNumber == phone) {
-                    sendVerificationCode(phone)
-                    Toast.makeText(this@SignActivity, "$phone raqamiga SMS jo‘natildi", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@SignActivity, "Bu raqam admin ro‘yxatida topilmadi!", Toast.LENGTH_SHORT).show()
+                // admins ichidagi barcha bolalarni aylanib chiqamiz (1, 2, 3 va hokazo)
+                for (adminSnapshot in snapshot.children) {
+                    val adminNumber = adminSnapshot.child("number").value?.toString()
+
+                    // Agar ro‘yxatdagi raqam foydalanuvchi kiritgani bilan bir xil bo‘lsa
+                    if (adminNumber == phone) {
+                        found = true
+                        sendVerificationCode(phone)
+                        Toast.makeText(
+                            this@SignActivity,
+                            "$phone raqamiga SMS jo‘natildi",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        break
+                    }
+                }
+
+                // Hech bir admin raqami mos kelmasa
+                if (!found) {
+                    Toast.makeText(
+                        this@SignActivity,
+                        "Bu raqam admin ro‘yxatida topilmadi!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
@@ -95,6 +114,7 @@ class SignActivity : AppCompatActivity() {
             }
         })
     }
+
 
 
     private fun verifyCode() {
