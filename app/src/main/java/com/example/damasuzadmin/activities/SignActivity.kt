@@ -76,22 +76,13 @@ class SignActivity : AppCompatActivity() {
         referenceAdmin.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
-                var found = false
+                val adminNumber = snapshot.child("number").value?.toString()
 
-                for (adminSnap in snapshot.children) {
-                    val adminNumber = adminSnap.child("number").value?.toString()
-
-                    if (adminNumber == phone) {
-                        found = true
-                        break
-                    }
-                }
-
-                if (found) {
+                if (adminNumber == phone) {
                     sendVerificationCode(phone)
                     Toast.makeText(this@SignActivity, "$phone raqamiga SMS jo‘natildi", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@SignActivity, "Bu raqam adminlar ro‘yxatida topilmadi!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignActivity, "Bu raqam admin ro‘yxatida topilmadi!", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -104,6 +95,7 @@ class SignActivity : AppCompatActivity() {
             }
         })
     }
+
 
     private fun verifyCode() {
         val code = binding.edtCode.text.toString()
